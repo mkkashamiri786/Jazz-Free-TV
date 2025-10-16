@@ -1,27 +1,50 @@
-<!-- Channel Selector -->
-  <div class="channel-selector">
-    <h3>Quick Access Channels</h3>
-    <div class="channel-buttons">
-      <div class="channel-row">
-        <button class="channel-btn active" onclick="changeChannel('WOMENWC2025-abr', null, 'ICC Women ODI WC')">
-          <i class="fas fa-tv"></i> ICC Women ODI WC
-        </button>
-        <button class="channel-btn" onclick="changeChannel('Tensports-abr', null, 'Tensports')">
-          <i class="fas fa-tv"></i> Ten Sports HD
-        </button>
-      </div>
-      <div class="channel-row">
-        <button class="channel-btn" onclick="changeChannel('PTVHome-abr', null, 'PTV Home')">
-          <i class="fas fa-tv"></i> PTV Home
-        </button>
-        <button class="channel-btn" onclick="changeChannel('AFGVSBAN-abr', null, 'Ban Vs Afg')">
-          <i class="fas fa-tv"></i> BAN vs AFG ODI
-        </button>
-      </div>
-      <div class="channel-row">
-        <button class="channel-btn" onclick="changeChannel('PKvSA-TOT-abr', null, 'PAKvsSA-promo')">
-          <i class="fas fa-tv"></i> PAK vs SA Test
-        </button>
-      </div>
-    </div>
-  </div>
+// Channels data for Shaheen TV
+const channelsData = {
+    "quickAccess": [
+        {
+            id: "WOMENWC2025-abr",
+            name: "ICC Women ODI WC",
+            category: "sports",
+            logo: "https://img.freepik.com/premium-vector/cricket-logo-design-vector-template_739617-225.jpg",
+            isLive: true
+        },
+        {
+            id: "Tensports-abr",
+            name: "Ten Sports HD",
+            category: "sports", 
+            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Ten_Sports_2016.png/800px-Ten_Sports_2016.png",
+            isLive: true
+        },
+        {
+            id: "PTVHome-abr",
+            name: "PTV Home",
+            category: "entertainment",
+            logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/PTV_Home_logo.svg/1200px-PTV_Home_logo.svg.png",
+            isLive: true
+        },
+        {
+            id: "AFGVSBAN-abr",
+            name: "BAN vs AFG ODI",
+            category: "sports",
+            logo: "https://img.freepik.com/premium-vector/cricket-logo-design-vector-template_739617-225.jpg",
+            isLive: true
+        },
+        {
+            id: "PKvSA-TOT-abr",
+            name: "PAK vs SA Test",
+            category: "sports",
+            logo: "https://img.freepik.com/premium-vector/cricket-logo-design-vector-template_739617-225.jpg",
+            isLive: true
+        }
+    ]
+};
+
+// Function to get quick access channels
+function getQuickAccessChannels() {
+    return channelsData.quickAccess;
+}
+
+// Function to get channel by ID
+function getChannelById(channelId) {
+    return channelsData.quickAccess.find(channel => channel.id === channelId);
+}

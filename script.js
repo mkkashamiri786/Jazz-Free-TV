@@ -240,3 +240,35 @@ function filterByCategory(category) {
   // Update channel count after filtering
   updateChannelCount();
 }
+
+// Initialize quick access channels
+function initializeQuickAccessChannels() {
+    const channelButtons = document.querySelector('.channel-buttons');
+    if (!channelButtons) return;
+    
+    const quickAccessChannels = getQuickAccessChannels();
+    
+    // Create rows for quick access channels
+    let rowsHTML = '';
+    for (let i = 0; i < quickAccessChannels.length; i += 2) {
+        const rowChannels = quickAccessChannels.slice(i, i + 2);
+        rowsHTML += `
+            <div class="channel-row">
+                ${rowChannels.map(channel => `
+                    <button class="channel-btn ${channel.id === 'WOMENWC2025-abr' ? 'active' : ''}" 
+                            onclick="changeChannel('${channel.id}', null, '${channel.name}')">
+                        <i class="fas fa-tv"></i> ${channel.name}
+                    </button>
+                `).join('')}
+            </div>
+        `;
+    }
+    
+    channelButtons.innerHTML = rowsHTML;
+}
+
+// DOM loaded pe initialize karen
+document.addEventListener('DOMContentLoaded', function() {
+    initializeQuickAccessChannels();
+    // ... baaki initialization code
+});
